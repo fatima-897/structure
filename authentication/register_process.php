@@ -1,6 +1,6 @@
 <?php
 
-include './db.php';
+include('./authentication/db.php'); 
 include ('./include/header.php');
 
 

@@ -43,7 +43,7 @@
                     </div>
                  
                     <button type="submit" class="btn btn-success w-100">Login</button>
-                    <p class="text-center mt-3">Don't have an account? <a href="register.php">Register</a></p>
+                    <p class="text-center mt-3">Don't have an account? <a href="./authentication/register.php">Register</a></p>
                 </form>
             </div>
         </div>

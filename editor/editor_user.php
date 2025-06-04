@@ -1,10 +1,10 @@
 <?php
 include('./include/header.php');
-include('./db.php');
+include('./authentication/db.php'); 
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "editor") {
-    header("Location: index.php");
+    header("Location: welcome.php");
     exit();
 }
 
@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
                 <option value="user" <?php if ($user['role'] === 'user') echo 'selected'; ?>>User</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update User</button>
+        <a href="editor.php" type="submit" class="btn btn-primary">Update User</a>
         <a href="editor.php" class="btn btn-secondary">Back</a>
     </form>
 </div>
