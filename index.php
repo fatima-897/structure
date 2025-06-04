@@ -4,7 +4,7 @@ session_start();
 
 if(!isset($_SESSION['user']))
 {
-    header("Location: welcome.php");
+    header("Location: ./welcome.php");
     exit();
     
 }
@@ -12,7 +12,7 @@ $user = $_SESSION['user'];
 
 if(!isset($_SESSION['role']))
 {
-    header("Location: welcome.php");
+    header("Location: ./welcome.php");
     exit();
 }
 $role = $_SESSION['role'];

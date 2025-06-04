@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['role'] = $row['role'];
         $_SESSION['id'] = $row['id'];
 
-       header("Location: welcome.php");
+       header("Location: ./welcome.php");
                 exit();
             } else {
                 echo "<div class='alert alert-danger'>Error: incorrect password</div>";

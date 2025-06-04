@@ -4,7 +4,7 @@ include('./authentication/db.php');
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "editor") {
-    header("Location: welcome.php");
+    header("Location: ./welcome.php");
     exit();
 }
 
