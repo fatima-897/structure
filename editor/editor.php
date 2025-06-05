@@ -1,10 +1,10 @@
 <?php
-include('./authentication/db.php'); 
-include('./include/header.php');
+include('../authentication/db.php'); 
+include('../include/header.php');
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "editor") {
-    header("Location: ./welcome.php");
+    header("Location: ./login.php");
     exit();
 
 }
@@ -60,7 +60,7 @@ $role = $_SESSION['role'] ?? 'N/A';
     </table>
 </div>
 
-<a href="./authentication/logout.php" class="btn btn-sm btn-danger">log out</a>
+<a href="../authentication/logout.php" class="btn btn-sm btn-danger">log out</a>
 <?php
-include('./include/footer.php')
+include('../include/footer.php')
     ?>

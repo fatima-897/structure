@@ -4,7 +4,7 @@ session_start();
 
 if(!isset($_SESSION['user']))
 {
-    header("Location: ./welcome.php");
+    header("Location: ./authentication/login.php");
     exit();
     
 }
@@ -12,19 +12,19 @@ $user = $_SESSION['user'];
 
 if(!isset($_SESSION['role']))
 {
-    header("Location: ./welcome.php");
+    header("Location: ./authentication/login.php");
     exit();
 }
 $role = $_SESSION['role'];
 
 if ($role === "admin") {
-    header("Location: ./admin/admin.php");
+    header("Location: admin/admin.php");
     exit();
 } elseif($role === "editor") {
-    header("Location: ./editor/editor.php");
+    header("Location: editor/editor.php");
     exit();
 } elseif($role === "user") {
-    header("Location: ./user/user.php");
+    header("Location: user/user.php");
     exit();
 }else{
 ?>

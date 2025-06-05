@@ -1,10 +1,10 @@
 <?php 
-include('./authentication/db.php'); 
-include('./include/header.php');
+include '../authentication/db.php'; 
+include '../include/header.php';
 session_start();
 
 if(!isset($_SESSION['role']) || $_SESSION['role'] !== "admin" ){
-    header("Location: ./index.php");
+    header("Location: ../login.php");
     exit();
 }
 
@@ -105,7 +105,7 @@ $role = $_SESSION['role'] ;
                             <td>{$row['id']}</td>
                             <td>{$row['username']}</td>
                             <td>{$row['role']}</td>
-                            <td><a href='./editor/edit_user.php?id={$row['id']}' class='btn btn-sm btn-primary'>Edit</a></td>
+                            <td><a href='./editor/editor.php?id={$row['id']}' class='btn btn-sm btn-primary'>Edit</a></td>
                         </tr>";
                 }
             } else {
@@ -116,8 +116,8 @@ $role = $_SESSION['role'] ;
     </table>
 </div>
 
-<a href="./authentication/logout.php" class="btn btn-sm btn-danger">log out</a>
+<a href="../authentication/logout.php" class="btn btn-sm btn-danger">log out</a>
 <p></p>
 <?php 
-include ('./include/footer.php')
+include ('../include/footer.php')
 ?>

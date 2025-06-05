@@ -1,39 +1,53 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-include ('./authentication/db.php');
-include ('./include/header.php');
-session_start();
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $role  = $_POST['role'];
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 bg-white p-4 rounded shadow-sm">
+                <h2 class="text-center mb-4">Login</h2>
+                <?php
+                if (isset($_GET['register'])  && $_GET['register'] == "success") {
+                ?>
 
-    if (!empty($username) && !empty($password)) {
-
-      $sql = "SELECT * from users where username = '$username'";
-
-      $result = $conn->query($sql);
-
-      if ($row = $result->fetch_assoc()) {
-        if(password_verify($password ,$row['password'])){
-        $_SESSION['user'] = $row['username'];
-        $_SESSION['role'] = $row['role'];
-        $_SESSION['id'] = $row['id'];
-
-       header("Location: ./welcome.php");
-                exit();
-            } else {
-                echo "<div class='alert alert-danger'>Error: incorrect password</div>";
-            }
-        } else {
-            echo "<div class='alert alert-warning'>Error: user not found</div>";
-        }
-    } else {
-        echo "<div class='alert alert-warning'>Please enter username and password</div>";
-    }
-}
+                    <div id="successMessage" class="alert alert-success">
+                        Registration Successfull now you can login
+                    </div>
+                    <script>
+                        setTimeout(() => {
+                            let msg = document.getElementById("successMessage")
+                            if (msg) {
+                                msg.style.display = 'none'
+                            }
+                        }, 2000);
+                    </script>
+                <?php
+                }
+                ?>
 
 
-include ('./include/footer.php')
-?>
+                <form method="POST" action="./login-process.php">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                    <p class="text-center mt-3">Don't have an account? <a href="./register.php">Register</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

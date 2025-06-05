@@ -1,10 +1,10 @@
 <?php
-include('./include/header.php');
-include('./authentication/db.php'); 
+include('../include/header.php');
+include('../authentication/db.php'); 
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== "editor") {
-    header("Location: ./welcome.php");
+    header("Location: ./index.php");
     exit();
 }
 

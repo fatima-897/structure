@@ -1,7 +1,7 @@
 <?php
 
-include('./authentication/db.php'); 
-include ('./include/header.php');
+include('../db.php'); 
+include ('../include/header.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $result = $conn->query($sql);
 
     if ($result) {
-        header("Location: ./welcome.php?register=success");
+        header("Location: ./login.php?register=success");
     } else {
         echo "<div class='alert alert-danger>Error:  Registration failed</div>";
     }
